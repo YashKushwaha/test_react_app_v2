@@ -1,5 +1,7 @@
 
 import {Counter} from "@/components/counter"
+import {UserCard} from "@/components/usercard"
+import {LoginStatus} from "@/components/loginstatus"
 
 function Header(){
   return (
@@ -22,6 +24,9 @@ function MainContent(){
         <main className="flex-1 p-6 overflow-auto bg-gray-100">
           Main Content
           <Counter></Counter>
+          <UserCard name="Alice" role="GenAI Engineer"></UserCard>
+          <UserCard name="Alex" role="ML Engineer"></UserCard>
+          <LoginStatus></LoginStatus>
         </main>
   )
 }
