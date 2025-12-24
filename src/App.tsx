@@ -3,6 +3,41 @@ import {Counter} from "@/components/counter"
 import {UserCard} from "@/components/usercard"
 import {LoginStatus} from "@/components/loginstatus"
 
+import { useState } from "react"
+
+const items = ["Models", "Datasets", "Pipelines"]
+
+function SidebarMenu() {
+  return (
+    <ul className="space-y-2">
+      {items.map((item) => (
+        <li key={item} className="p-2 hover:bg-muted rounded">
+          - {item}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function PromptInput() {
+  const [prompt, setPrompt] = useState("")
+
+  return (
+    <div className="space-y-2">
+      <input
+        className="border p-2 w-full"
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
+      />
+
+      <div className="text-sm text-muted-foreground">
+        Length: {prompt.length}
+      </div>
+    </div>
+  )
+}
+
+
 function Header(){
   return (
       <header className="h-12 w-full border-b flex items-center px-4 border border-black bg-red-200">
@@ -27,9 +62,15 @@ function MainContent(){
           <UserCard name="Alice" role="GenAI Engineer"></UserCard>
           <UserCard name="Alex" role="ML Engineer"></UserCard>
           <LoginStatus></LoginStatus>
+          <SidebarMenu />
+          <PromptInput></PromptInput>
         </main>
   )
 }
+
+
+
+
 
 function App() {
   return (
