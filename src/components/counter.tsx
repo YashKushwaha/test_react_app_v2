@@ -11,6 +11,10 @@ export function Counter() {
       <Button onClick={() => setCount(count + 1)}>
         Increment
       </Button>
+        <div className="flex gap-2">
+        <Button onClick={() => setCount(count + 1)}>+</Button>
+        <Button variant="outline" onClick={() => setCount(count - 1)}>-</Button>
+      </div>
     </div>
   )
 }

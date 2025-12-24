@@ -37,6 +37,69 @@ function PromptInput() {
   )
 }
 
+function InfoCard({
+  title,
+  description,
+}: {
+  title: string
+  description: string
+}) {
+  return (
+    <div className="border rounded-lg p-4">
+      <h3 className="font-semibold">{title}</h3>
+      <p className="text-sm text-muted-foreground">{description}</p>
+    </div>
+  )
+}
+
+function Dashboard() {
+  return (
+    <div className="grid grid-cols-3 gap-4">
+      <InfoCard title="Users" description="1,234" />
+      <InfoCard title="Latency" description="120ms" />
+      <InfoCard title="Tokens Used" description="56k" />
+    </div>
+  )
+}
+const stats = [
+  { title: "Users", description: "1,234" },
+  { title: "Latency", description: "120ms" },
+  { title: "Tokens Used", description: "56k" },
+]
+
+function Dashboard_v2() {
+  return (
+
+    <div className="grid grid-cols-3 gap-4">
+      {stats.map((item) => (
+        <InfoCard
+          key={item.title}
+          title={item.title}
+          description={item.description}
+        />
+      ))}
+    </div>
+  )
+}
+import { Input } from "@/components/ui/input"
+
+function NameInput() {
+  const [name, setName] = useState("")
+
+  return (
+    <div className="space-y-2">
+      <Input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Type your name"
+      />
+
+      <p>Hello, {name || "stranger"} 👋</p>
+    </div>
+  )
+}
+
+
 
 function Header(){
   return (
@@ -64,6 +127,12 @@ function MainContent(){
           <LoginStatus></LoginStatus>
           <SidebarMenu />
           <PromptInput></PromptInput>
+          <Dashboard />
+          <NameInput />
+          <Dashboard_v2 />
+          
+          
+          
         </main>
   )
 }
