@@ -1,6 +1,7 @@
 
 import { useState } from "react"
 import { ChatInput } from "@/components/chat/ChatInput"
+import { useEffect, useRef } from "react"
 
 type Message = {
   role: string
@@ -28,6 +29,8 @@ function renderMessage(msg: Message, index: number) {
 export function ChatView() {
   const [messages, setMessages] = useState<Message[]>([])
 
+  const bottomRef = useRef<HTMLDivElement | null>(null)
+
   function handleSend(text: string) {
     const userMessage: Message = {
       role: "user",
@@ -42,6 +45,11 @@ export function ChatView() {
     setMessages((prev) => [...prev, userMessage, mockResponse])
   }
 
+  // ✅ Scroll when messages change
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [messages])
+
   return (
     <div className="flex flex-col h-full">
       {/* Chat history */}
@@ -49,6 +57,7 @@ export function ChatView() {
         <div className="flex flex-col gap-3">
           {messages.map(renderMessage)}
         </div>
+        <div ref={bottomRef} />
       </div>
 
       {/* Input */}
