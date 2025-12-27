@@ -4,7 +4,7 @@ import { CounterNTodo } from './blocks/CounterNTodo'
 import { Counter } from "@/components/Counter"
 import {AppLayout} from '@/layout/AppLayout'
 import { TodoList } from "@/components/TodoList"
-import { TodoInfoCards } from './blocks/TodoInfoCards'
+import { TodoInfoCards } from './blocks/todo_card_info_cards_with_reducers/TodoInfoCards'
 
 
 export default function App() {
