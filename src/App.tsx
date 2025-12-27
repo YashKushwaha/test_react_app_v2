@@ -1,20 +1,19 @@
 import './App.css'
-import { Header } from './layout/Header'
-import { Sidebar } from './layout/Sidebar'
-import { MainContent } from './layout/MainContent'
-
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { CounterNTodo } from './blocks/CounterNTodo'
+import { Counter } from "@/components/Counter"
+import {AppLayout} from '@/layout/AppLayout'
+import { TodoList } from "@/components/TodoList"
 export default function App() {
   return (
-  <div className="flex-none">
-      <Header></Header>
-      
-        <div className='flex'>       
-            <Sidebar />
-            <MainContent />
-      </div>
-
-  </div>
-
-
+    <BrowserRouter> 
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<CounterNTodo />} />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/todo" element={<TodoList />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }

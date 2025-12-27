@@ -5,11 +5,11 @@ export function Counter() {
     
     const [count, setCount] = useState(10)
     return (
-        <>
+        <div>
     <div>{count}</div>
     <Button onClick={() => setCount(count+1)}>
         +
     </Button>
-    </>
+    </div>
     )
 }
