@@ -7,6 +7,7 @@ export function Sidebar(){
         <Link className='text-xl' to="/todo">To Do App</Link>
         <Link className='text-xl' to="/counter">Counter App</Link>
         <Link className='text-xl' to="/info_cards">Info Cards</Link>
+        <Link className='text-xl' to="/todo_cards_app">TodoCardsApp</Link>
       </aside>
   )
 }
