@@ -16,6 +16,6 @@ export type TodoUI = {
 export type Filters = {
   title: string
   users: number[] | null        // selected userIds
-  status: "Pending" | "Completed" | null
+  status: "Pending" | "Completed" | "All"
   idRange: [number, number] | null
 }
